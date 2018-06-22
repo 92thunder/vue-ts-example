@@ -6,6 +6,9 @@
   "private": true,
   "devDependencies": {
     "css-loader": "^0.28.11",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.0",
+    "prettier": "1.13.5",
     "ts-loader": "^4.4.1",
     "typescript": "^2.9.2",
     "vue": "^2.5.16",
@@ -16,6 +19,13 @@
     "webpack-cli": "^3.0.8"
   },
   "scripts": {
+    "precommit": "lint-staged",
     "build": "webpack"
+  },
+  "lint-staged": {
+    "*.{js,json,md,ts}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
