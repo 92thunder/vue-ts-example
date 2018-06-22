@@ -1,0 +1,12 @@
+{
+  "name": "vue-ts-client",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "webpack --config ./build/webpack.config.js"
+  },
+  "devDependencies": {
+    "webpack": "^4.12.0"
+  }
+}

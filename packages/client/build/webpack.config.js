@@ -9,9 +9,7 @@ module.exports = {
     publicPath: '/dist/',
     filename: 'build.js'
   },
-  plugins: [
-    new VueLoaderPlugin()
-  ],
+  plugins: [new VueLoaderPlugin()],
   module: {
     rules: [
       {
@@ -22,8 +20,8 @@ module.exports = {
             // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
             // the "scss" and "sass" values for the lang attribute to the right configs here.
             // other preprocessors should work out of the box, no loader config like this necessary.
-            'scss': 'vue-style-loader!css-loader!sass-loader',
-            'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
+            scss: 'vue-style-loader!css-loader!sass-loader',
+            sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
           }
           // other vue-loader options go here
         }
@@ -33,7 +31,7 @@ module.exports = {
         loader: 'ts-loader',
         exclude: /node_modules/,
         options: {
-          appendTsSuffixTo: [/\.vue$/],
+          appendTsSuffixTo: [/\.vue$/]
         }
       },
       {
@@ -45,17 +43,14 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          'vue-style-loader',
-          'css-loader'
-        ]
+        use: ['vue-style-loader', 'css-loader']
       }
     ]
   },
   resolve: {
     extensions: ['.ts', '.js', '.vue', '.json'],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      vue$: 'vue/dist/vue.esm.js'
     }
   },
   devServer: {
