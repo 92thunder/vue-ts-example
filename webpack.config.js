@@ -9,6 +9,7 @@ module.exports = {
     publicPath: '/dist/',
     filename: 'build.js'
   },
+  mode: 'development',
   plugins: [new VueLoaderPlugin()],
   module: {
     rules: [

@@ -1,16 +1,19 @@
 <template>
-  <button>
+  <h1>
     <slot/>
-  </button>
+  </h1>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 export default Vue.extend({
-  
 })
 </script>
 
-<style>
-
+<style scoped>
+h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 48px;
+}
 </style>

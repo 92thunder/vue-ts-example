@@ -1,8 +1,8 @@
 import { storiesOf } from '@storybook/vue'
 
-import MyButton from './MyButton.vue'
+import Title from './Title.vue'
 
-storiesOf('Button', module).add('with text', () => ({
-  components: { MyButton },
-  template: '<my-button>Hello Button</my-button>'
+storiesOf('Components', module).add('title', () => ({
+  components: { Title },
+  template: '<Title>Hello Button</Title>'
 }))
