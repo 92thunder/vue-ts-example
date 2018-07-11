@@ -1,3 +1,3 @@
-import Task, { TaskStates } from './Task'
+import Task, { TaskStates } from './Task.ts'
 
 export { Task, TaskStates }

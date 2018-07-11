@@ -2,6 +2,9 @@
   <div class="container">
     <Title class="title">Tasks</Title>
     <Input @submit="submit"/>
+    <div class="tasks">
+      <task v-for="(task, index) in tasks" :key="index" :task="task"/>
+    </div>
   </div>
 </template>
 
@@ -9,16 +12,21 @@
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import Title from 'vue-ts-components/stories/Title.vue'
 import Input from 'vue-ts-components/stories/Input.vue'
+import TaskVue from 'vue-ts-components/stories/Task.vue'
+import { Task } from 'vue-ts-core'
 
 @Component({
   components: {
     Title,
-    Input
+    Input,
+    'task': TaskVue
   }
 })
 export default class App extends Vue {
+  tasks: Task[] = []
+
   submit(value: string) {
-    console.log(value)
+    this.tasks.push(new Task(value))
   }
 }
 </script>
@@ -26,7 +34,6 @@ export default class App extends Vue {
 <style>
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 body {
-  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 24px;
 }
@@ -43,5 +50,11 @@ body {
 
 .title {
   margin-bottom: 24px;
+}
+
+.tasks {
+  margin-top: 24px;
+  width: 100%;
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
 }
 </style>

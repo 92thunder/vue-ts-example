@@ -9,5 +9,6 @@
     "target": "es5",
     "experimentalDecorators": true
   },
+  "include": ["packages/**/*.ts"],
   "exclude": ["**/test/*"]
 }

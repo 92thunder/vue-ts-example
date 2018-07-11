@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "vue-ts-components": "^0.0.0",
+    "vue-ts-core": "^0.0.0",
     "webpack": "^4.12.0"
   }
 }

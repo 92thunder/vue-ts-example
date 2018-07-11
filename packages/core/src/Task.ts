@@ -9,7 +9,7 @@ export default class Task {
   description: string
   status: TaskStates
 
-  constructor(title: string, description: string) {
+  constructor(title: string, description: string = '') {
     this.title = title
     this.description = description
     this.status = TaskStates.TODO
