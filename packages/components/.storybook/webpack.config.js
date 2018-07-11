@@ -9,5 +9,13 @@ module.exports = (storybookBaseConfig, configType) => {
     test: /\.css$/,
     loaders: ['vue-style-loader', 'css-loader']
   })
+  storybookBaseConfig.module.rules.push({
+    test: /\.tsx?$/,
+    loader: 'ts-loader',
+    exclude: /node_modules/,
+    options: {
+      appendTsSuffixTo: [/\.vue$/]
+    }
+  })
   return storybookBaseConfig
 }
