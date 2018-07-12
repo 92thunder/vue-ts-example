@@ -28,7 +28,7 @@ export default class App extends Vue {
   }
 
   submit(value: string) {
-    this.$store.commit('addTask', new Task(value))
+    this.$store.dispatch('addTask', new Task(value))
   }
 }
 </script>

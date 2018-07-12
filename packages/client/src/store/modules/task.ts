@@ -1,4 +1,4 @@
-import { Module, MutationTree } from 'vuex'
+import { Module, MutationTree, ActionTree } from 'vuex'
 import { Task } from 'vue-ts-core'
 import RootState from '../RootState'
 
@@ -7,7 +7,7 @@ export interface TaskState {
 }
 
 export const state: TaskState = {
-  tasks: []
+  tasks: JSON.parse(localStorage.getItem('tasks') || '[]')
 }
 
 const mutations: MutationTree<TaskState> = {
@@ -16,9 +16,17 @@ const mutations: MutationTree<TaskState> = {
   }
 }
 
+const actions: ActionTree<TaskState, RootState> = {
+  addTask({ commit, state }, task: Task) {
+    commit('addTask', task)
+    localStorage.setItem('tasks', JSON.stringify(state.tasks))
+  }
+}
+
 const task: Module<TaskState, RootState> = {
   state,
-  mutations
+  mutations,
+  actions
 }
 
 export default task
