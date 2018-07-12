@@ -5,9 +5,11 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
-})
+import { Vue, Component, Prop } from 'vue-property-decorator'
+
+@Component
+export default class Title extends Vue {
+}
 </script>
 
 <style scoped>

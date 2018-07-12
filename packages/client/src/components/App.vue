@@ -23,10 +23,12 @@ import { Task } from 'vue-ts-core'
   }
 })
 export default class App extends Vue {
-  tasks: Task[] = []
+  get tasks() {
+    return this.$store.state.task.tasks
+  }
 
   submit(value: string) {
-    this.tasks.push(new Task(value))
+    this.$store.commit('addTask', new Task(value))
   }
 }
 </script>

@@ -11,10 +11,6 @@ import { Task } from 'vue-ts-core'
 @Component
 export default class TaskVue extends Vue {
   @Prop(Object) task!: Task
-
-  mounted() {
-    console.log(this.task)
-  }
 }
 </script>
 
