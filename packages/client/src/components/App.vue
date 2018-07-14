@@ -51,11 +51,12 @@ body {
 }
 
 .title {
-  margin-bottom: 24px;
+  margin-bottom: 40px;
+  line-height: 48px;
 }
 
 .tasks {
-  margin-top: 24px;
+  margin-top: 40px;
   width: 100%;
   box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
 }
