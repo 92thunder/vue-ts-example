@@ -11,6 +11,9 @@
       <task v-for="(task, index) in tasks" :index="index" :key="index" :task="task" v-if="task.status === activeTab"
         @updateTask="updateTask"/>
     </div>
+    <div>
+      Repository: <a href="https://github.com/92thunder/vue-ts-example">https://github.com/92thunder/vue-ts-example</a>
+    </div>
   </div>
 </template>
 
@@ -75,7 +78,7 @@ body {
   line-height: 48px;
 }
 .tasks {
-  margin-top: 40px;
+  margin: 40px 0;
   width: 100%;
   box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
 }
