@@ -8,7 +8,8 @@
         <div :class="{ active: activeTab === 'doing' }" @click="setActiveTab('doing')">Doing</div>
         <div :class="{ active: activeTab === 'done' }" @click="setActiveTab('done')">Done</div>
       </div>
-      <task v-for="(task, index) in tasks" :key="index" :task="task" v-if="task.status === activeTab"/>
+      <task v-for="(task, index) in tasks" :index="index" :key="index" :task="task" v-if="task.status === activeTab"
+        @updateTask="updateTask"/>
     </div>
   </div>
 </template>
@@ -19,6 +20,7 @@ import Title from 'vue-ts-components/stories/Title.vue'
 import Input from 'vue-ts-components/stories/Input.vue'
 import TaskVue from 'vue-ts-components/stories/Task.vue'
 import { Task } from 'vue-ts-core'
+import { TaskState } from '../store/modules/task';
 
 @Component({
   components: {
@@ -39,6 +41,15 @@ export default class App extends Vue {
   }
   submit(value: string) {
     this.$store.dispatch('addTask', new Task(value))
+  }
+  updateTask(index: number, event: string, status?: TaskState) {
+    if (event === 'CHANGE_STATUS' && status) {
+      this.$store.dispatch('changeStatus', {
+        index, status
+      })
+    } else if(event === 'REMOVE') {
+      this.$store.dispatch('removeTask', index)
+    }
   }
 }
 </script>
@@ -79,6 +90,7 @@ body {
   text-align: center;
   background-color: #EDEDED;
   font-size: 24px;
+  cursor: pointer;
 }
 .tab div.active {
   background-color: #FFFFFF;

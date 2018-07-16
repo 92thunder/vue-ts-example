@@ -44,6 +44,7 @@ button {
   background-color: #666666;
   text-align: center;
   color: #FFFFFF;
+  cursor: pointer;
 }
 button:active {
   background-color: #999;
