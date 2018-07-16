@@ -13,7 +13,7 @@ export default class Input extends Vue {
   data: string = ''
 
   submit() {
-    if (this.data) {
+    if (this.data.trim()) {
       this.$emit('submit', this.data)
       this.data = ''
     }
