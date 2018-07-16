@@ -3,7 +3,12 @@
     <Title class="title">Tasks</Title>
     <Input @submit="submit"/>
     <div class="tasks">
-      <task v-for="(task, index) in tasks" :key="index" :task="task"/>
+      <div class="tab">
+        <div :class="{ active: activeTab === 'todo' }" @click="setActiveTab('todo')">ToDo</div>
+        <div :class="{ active: activeTab === 'doing' }" @click="setActiveTab('doing')">Doing</div>
+        <div :class="{ active: activeTab === 'done' }" @click="setActiveTab('done')">Done</div>
+      </div>
+      <task v-for="(task, index) in tasks" :key="index" :task="task" v-if="task.status === activeTab"/>
     </div>
   </div>
 </template>
@@ -23,10 +28,15 @@ import { Task } from 'vue-ts-core'
   }
 })
 export default class App extends Vue {
+  activeTab: string = 'todo'
+
   get tasks() {
     return this.$store.state.task.tasks
   }
 
+  setActiveTab(tabName: string) {
+    this.activeTab = tabName
+  }
   submit(value: string) {
     this.$store.dispatch('addTask', new Task(value))
   }
@@ -49,15 +59,28 @@ body {
   max-width: 660px;
   margin: 0 auto;
 }
-
 .title {
   margin-bottom: 40px;
   line-height: 48px;
 }
-
 .tasks {
   margin-top: 40px;
   width: 100%;
   box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
+}
+.tab {
+  display: flex;
+}
+.tab div {
+  flex-grow: 1;
+  height: 39px;
+  border: 1px solid #E1E1E1;
+  line-height: 40px;
+  text-align: center;
+  background-color: #EDEDED;
+  font-size: 24px;
+}
+.tab div.active {
+  background-color: #FFFFFF;
 }
 </style>
