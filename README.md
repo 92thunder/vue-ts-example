@@ -1,6 +1,11 @@
-# My ts vue template
+# My vue ts template
 
-## ToDo
+## use
 
+- Vue
 - Vuex
-- E2E test
+- TypeScript
+- Storybook
+- lerna
+- prettier
+- webpack(4.14.0)
